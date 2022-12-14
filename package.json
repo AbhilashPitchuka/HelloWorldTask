@@ -26,6 +26,6 @@
   "bugs": {
     "url": "https://github.com/simonqian/react-helloworld/issues"
   },
-  "homepage": "https://github.com/simonqian/react-helloworld#readme"
-  
+  "homepage": "https://github.com/simonqian/react-helloworld#readme",
+  "devDependencies": {}
 }
