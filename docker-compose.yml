@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  webapp:
+    container_name: demo
+    image: react_image
+    build:
+      context: .
+    ports:
+      - 8000:80 
