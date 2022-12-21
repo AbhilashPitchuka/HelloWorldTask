@@ -1,11 +1,13 @@
-FROM node:14.21-alpine
+FROM node:14.21-alpine as builder
 WORKDIR /webapp
-COPY . .
+COPY package.json .
+COPY package-lock.json .
 RUN npm install
-RUN npm start
+COPY . .
+RUN npm build
 
 FROM nginx:1.23.3
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
-COPY --from=builder /webapp/start .
+COPY --from=builder /webapp/build .
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
